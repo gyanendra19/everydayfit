@@ -1,26 +1,28 @@
 import { useState } from 'react'
-import Navbar from '@/components/navbar' 
+import {createBrowserRouter, Route, RouterProvider, createRoutesFromElements} from 'react-router-dom'
 import { GymContext } from '@/contexts/gymContext'
 import { Pages } from '@/shared/types'
-import Home from '@/components/Home'
-import Services from '@/components/Services'
-import Features from '@/components/Features'
-import ContactUs from '@/components/contact/index'
-import Footer from './components/Footer'
+import CalcLayout from './Layout/CalcLayout'
+import MainLayout from './Layout/MainLayout'
 
 function App() {
-  const [selectedPage, setSelectedPage] = useState(Pages.Home) 
+  const [selectedPage, setSelectedPage] = useState(Pages.Home)
+
+
+  const route = createBrowserRouter(
+    createRoutesFromElements(
+      <>
+      <Route path='' element= {<MainLayout />} />
+      <Route path='calculators' element ={<CalcLayout />} />
+      </>
+    )
+  )
 
   return (
     <>
     <GymContext.Provider value={{selectedPage, setSelectedPage}}>
       <div>
-        <Navbar />
-        <Home />
-        <Services />
-        <Features/>
-        <ContactUs />
-        <Footer />
+        <RouterProvider router={route} />
       </div>
     </GymContext.Provider>
     </>

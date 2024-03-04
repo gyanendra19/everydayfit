@@ -1,6 +1,6 @@
 import AnchorLink from "react-anchor-link-smooth-scroll";
-import { gymContextType, useGymContext } from "../../contexts/gymContext";
-import { Pages } from "../../shared/types";
+import { gymContextType, useGymContext } from "@/contexts/gymContext";
+import { Pages } from "@/shared/types";
 
 type Props = {
     children: string
@@ -12,7 +12,7 @@ const Links = ({children}: Props) => {
 
   return (
     <AnchorLink
-    className={selectedPage === lowerCasePage ? "text-box-secondary" : ""}
+    className={selectedPage === lowerCasePage ? "opacity-60" : ""}
     onClick={() => setSelectedPage(lowerCasePage)}
     href={`#${lowerCasePage}`}
     >

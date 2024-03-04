@@ -1,4 +1,4 @@
-import ActionButton from '@/shared/ActionButton'
+import ActionButton, { FeaturesButton } from '@/shared/ActionButton'
 import Htext from '@/shared/Htext'
 import calculator from '@/assets/calculator.png'
 import product from '@/assets/product.png'
@@ -34,7 +34,7 @@ function Features({ }: Props) {
                         <Htext>CALCULATORS</Htext>
                         <p className='mt-5 sm:w-8/12 text-xl'>Use indicators like BMI, Ideal body weight, Number of Macros, Body fat percent, Daily calorie to track your fitness journey and achieve your desired goals</p>
                         <div className='mt-6'>
-                            <ActionButton>JOIN NOW</ActionButton>
+                            <FeaturesButton toPage='calculators'>JOIN NOW</FeaturesButton>
                         </div>
                     </motion.div>
 
