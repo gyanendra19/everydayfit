@@ -11,7 +11,7 @@ export default {
         "box-primary": "#FFD7E1",
         "box-secondary": "#FFCFD2",
         "button-primary": "#E76F51",
-        "header-primary": "#D08282"
+        "header-primary": "#B14343"
       },
       content: {
         everydayfit: "url('./assets/EVERYDAYFIT.png')",

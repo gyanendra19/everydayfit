@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form'
 
 type Props = {}
 
-function DailyCalorie({ }: Props) {
+function BodyFatPercent({}: Props) {
     const { register, trigger, formState: { errors } } = useForm()
     const inputStyles = `py-3 mt-4 px-4 md:w-5/6 w-[90%] bg-box-secondary rounded-md placeholder-white focus:outline-none`
 
@@ -24,15 +24,8 @@ function DailyCalorie({ }: Props) {
             e.preventDefault()
         }
     }
-
-    // const inputErrors = (item:string) => {
-    //    return errors[`${item}`] &&
-    //     <p className='mt-1'>
-    //         {errors[`${item}`].type === 'required' && 'This field is required'}
-    //     </p>      
-    // }
-    return (
-        <div className='basis-3/5'>
+  return (
+    <div className='basis-3/5'>
             <form
                 action=""
                 onSubmit={onSubmit}
@@ -61,24 +54,31 @@ function DailyCalorie({ }: Props) {
                         {errors.height.type === 'required' && 'This field is required'}
                     </p>
                 }
-                <div className={`${inputStyles}`}>
-                    <select id='activitylevel' className='p-4 rounded-md mt-1 bg-box-secondary border-2 border-box-primary text-white focus:outline-none' {...register('activitylevel')}>
-                        <option value="level_1">Sedentary: little or no exercise</option>
-                        <option value="level_2">Exercise 1-3 times/week</option>
-                        <option value="level_3">Exercise 4-5 times/week</option>
-                        <option value="level_4">Daily exercise or intense exercise 3-4 times/week</option>
-                        <option value="level_5">Intense exercise 6-7 times/week</option>
-                        <option value="level_6">Very intense exercise daily, or physical job</option>
-                    </select>
-                </div>
+                {inputBody('neck', 'Neck', 'number')}
+                {errors.neck &&
+                    <p className='mt-1'>
+                        {errors.neck.type === 'required' && 'This field is required'}
+                    </p>
+                }
+                {inputBody('waist', 'Waist', 'number')}
+                {errors.waist &&
+                    <p className='mt-1'>
+                        {errors.waist.type === 'required' && 'This field is required'}
+                    </p>
+                }
+                {inputBody('hip', 'Hip', 'number')}
+                {errors.hip &&
+                    <p className='mt-1'>
+                        {errors.hip.type === 'required' && 'This field is required'}
+                    </p>
+                }
 
                 <button
                     type='submit'
                     className='py-3 mt-3.5 px-4 md:w-5/6 w-[90%] rounded-md bg-[#FF8A6C] text-white'>RESULTS</button>
             </form>
         </div>
-
-    )
+  )
 }
 
-export default DailyCalorie
+export default BodyFatPercent

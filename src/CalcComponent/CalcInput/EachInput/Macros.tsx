@@ -1,8 +1,9 @@
+import React from 'react'
 import { useForm } from 'react-hook-form'
 
 type Props = {}
 
-function DailyCalorie({ }: Props) {
+function Macros({ }: Props) {
     const { register, trigger, formState: { errors } } = useForm()
     const inputStyles = `py-3 mt-4 px-4 md:w-5/6 w-[90%] bg-box-secondary rounded-md placeholder-white focus:outline-none`
 
@@ -15,7 +16,6 @@ function DailyCalorie({ }: Props) {
             placeholder={fieldCap}
             className={`${inputStyles}`}
             type={type} />
-
     }
 
     const onSubmit = async (e: any) => {
@@ -24,13 +24,6 @@ function DailyCalorie({ }: Props) {
             e.preventDefault()
         }
     }
-
-    // const inputErrors = (item:string) => {
-    //    return errors[`${item}`] &&
-    //     <p className='mt-1'>
-    //         {errors[`${item}`].type === 'required' && 'This field is required'}
-    //     </p>      
-    // }
     return (
         <div className='basis-3/5'>
             <form
@@ -63,15 +56,27 @@ function DailyCalorie({ }: Props) {
                 }
                 <div className={`${inputStyles}`}>
                     <select id='activitylevel' className='p-4 rounded-md mt-1 bg-box-secondary border-2 border-box-primary text-white focus:outline-none' {...register('activitylevel')}>
-                        <option value="level_1">Sedentary: little or no exercise</option>
-                        <option value="level_2">Exercise 1-3 times/week</option>
-                        <option value="level_3">Exercise 4-5 times/week</option>
-                        <option value="level_4">Daily exercise or intense exercise 3-4 times/week</option>
-                        <option value="level_5">Intense exercise 6-7 times/week</option>
-                        <option value="level_6">Very intense exercise daily, or physical job</option>
+                        <option value="1">No Exercise at all</option>
+                        <option value="2">Sedentary: little or no exercise</option>
+                        <option value="3">Exercise 1-3 times/week</option>
+                        <option value="4">Exercise 4-5 times/week</option>
+                        <option value="5">Daily exercise or intense exercise 3-4 times/week</option>
+                        <option value="6">Intense exercise 6-7 times/week</option>
+                        <option value="7">Very intense exercise daily, or physical job</option>
                     </select>
                 </div>
-
+                
+                <div className={`${inputStyles}`}>
+                    <select id='goal' className='p-4 rounded-md mt-1 bg-box-secondary border-2 border-box-primary text-white focus:outline-none' {...register('goal')}>
+                        <option value="maintain">Maintain weight</option>
+                        <option value="mildlose">Mild Weight Loss</option>
+                        <option value="weightlose">Weight Loss</option>
+                        <option value="extremelose">Extreme weight loss</option>
+                        <option value="mildgain">Mild weight gain</option>
+                        <option value="weightgain">Weight gain</option>
+                        <option value="extremegain">Extreme Weight gain</option>
+                    </select>
+                </div>
                 <button
                     type='submit'
                     className='py-3 mt-3.5 px-4 md:w-5/6 w-[90%] rounded-md bg-[#FF8A6C] text-white'>RESULTS</button>
@@ -81,4 +86,4 @@ function DailyCalorie({ }: Props) {
     )
 }
 
-export default DailyCalorie
+export default Macros

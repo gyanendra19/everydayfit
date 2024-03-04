@@ -11,7 +11,7 @@ function CalcLinks({children}: Props) {
 
   return (
     <button
-    className={`${toggleCalc === lowerCasePage ? "opacity-60" : ""} cursor-pointer`}
+    className={`${toggleCalc === lowerCasePage ? "opacity-70" : ""} cursor-pointer`}
     onClick={() => setToggleCalc(lowerCasePage)}
     >
         {children}

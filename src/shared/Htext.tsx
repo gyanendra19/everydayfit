@@ -6,7 +6,7 @@ type Props = {
 
 function Htext({children}: Props) {
   return (
-    <h2 className='text-3xl text-header-primary mt-6 font-bold'>{children}</h2>
+    <h2 className='text-3xl text-header-primary mt-6 font-extrabold'>{children}</h2>
   )
 }
 

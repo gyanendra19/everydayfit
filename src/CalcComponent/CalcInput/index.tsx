@@ -1,7 +1,10 @@
 import CalcRun from '@/assets/run.png'
 import DailyCalorie from './EachInput/DailyCalorie'
-import { useState } from 'react'
 import { calcContextType, useCalcContext } from '@/contexts/calcContext'
+import IdealWeight from './EachInput/IdealWeight'
+import BMI from './EachInput/BMI'
+import Macros from './EachInput/Macros'
+import BodyFatPercent from './EachInput/BodyFatPercent'
 
 type Props = {}
 
@@ -10,7 +13,23 @@ function CalcInput({ }: Props) {
         {
             calc: 'dailycalorie',
             calcPage : <DailyCalorie />
-        }
+        },
+        {
+            calc: 'idealweight',
+            calcPage : <IdealWeight />
+        },
+        {
+            calc: 'bmi',
+            calcPage : <BMI />
+        },
+        {
+            calc: 'macros',
+            calcPage : <Macros />
+        },
+        {
+            calc: 'bodyfatpercent',
+            calcPage : <BodyFatPercent />
+        },
         ]
 
     const {toggleCalc} = useCalcContext() as calcContextType
