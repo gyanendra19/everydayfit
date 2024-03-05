@@ -1,10 +1,12 @@
-import React from 'react'
+import  results  from '@/CalcComponent/CalcResults/ResultsApi'
+import { calcContextType, useCalcContext } from '@/contexts/calcContext'
 import { useForm } from 'react-hook-form'
 
 type Props = {}
 
 function Macros({ }: Props) {
-    const { register, trigger, formState: { errors } } = useForm()
+    const { register, handleSubmit, formState: { errors } } = useForm()
+    const {response} = useCalcContext() as calcContextType
     const inputStyles = `py-3 mt-4 px-4 md:w-5/6 w-[90%] bg-box-secondary rounded-md placeholder-white focus:outline-none`
 
     const inputBody = (field: string, fieldCap: string, type: string) => {
@@ -18,17 +20,13 @@ function Macros({ }: Props) {
             type={type} />
     }
 
-    const onSubmit = async (e: any) => {
-        const isValid = await trigger()
-        if (!isValid) {
-            e.preventDefault()
-        }
-    }
+    const onSubmit = results('macrocalculator')
+
     return (
         <div className='basis-3/5'>
             <form
                 action=""
-                onSubmit={onSubmit}
+                onSubmit={handleSubmit(onSubmit)}
             >
                 {inputBody('age', 'Age', 'number')}
                 {errors.age &&
@@ -55,7 +53,7 @@ function Macros({ }: Props) {
                     </p>
                 }
                 <div className={`${inputStyles}`}>
-                    <select id='activitylevel' className='p-4 rounded-md mt-1 bg-box-secondary border-2 border-box-primary text-white focus:outline-none' {...register('activitylevel')}>
+                    <select id='activitylevel' className='p-4 w-[85%] rounded-md mt-1 bg-box-secondary border-2 border-box-primary text-white focus:outline-none' {...register('activitylevel')}>
                         <option value="1">No Exercise at all</option>
                         <option value="2">Sedentary: little or no exercise</option>
                         <option value="3">Exercise 1-3 times/week</option>
@@ -65,7 +63,7 @@ function Macros({ }: Props) {
                         <option value="7">Very intense exercise daily, or physical job</option>
                     </select>
                 </div>
-                
+
                 <div className={`${inputStyles}`}>
                     <select id='goal' className='p-4 rounded-md mt-1 bg-box-secondary border-2 border-box-primary text-white focus:outline-none' {...register('goal')}>
                         <option value="maintain">Maintain weight</option>

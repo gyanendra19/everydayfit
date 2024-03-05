@@ -1,9 +1,10 @@
+import results from '@/CalcComponent/CalcResults/ResultsApi'
 import { useForm } from 'react-hook-form'
 
 type Props = {}
 
 function BodyFatPercent({}: Props) {
-    const { register, trigger, formState: { errors } } = useForm()
+    const { register, handleSubmit, formState: { errors } } = useForm()
     const inputStyles = `py-3 mt-4 px-4 md:w-5/6 w-[90%] bg-box-secondary rounded-md placeholder-white focus:outline-none`
 
     const inputBody = (field: string, fieldCap: string, type: string) => {
@@ -18,17 +19,13 @@ function BodyFatPercent({}: Props) {
 
     }
 
-    const onSubmit = async (e: any) => {
-        const isValid = await trigger()
-        if (!isValid) {
-            e.preventDefault()
-        }
-    }
+    const onSubmit = results('bodyfat')
+
   return (
     <div className='basis-3/5'>
             <form
                 action=""
-                onSubmit={onSubmit}
+                onSubmit={handleSubmit(onSubmit)}
             >
                 {inputBody('age', 'Age', 'number')}
                 {errors.age &&

@@ -1,9 +1,10 @@
+import results from '@/CalcComponent/CalcResults/ResultsApi'
 import { useForm } from 'react-hook-form'
 
 type Props = {}
 
 function DailyCalorie({ }: Props) {
-    const { register, trigger, formState: { errors } } = useForm()
+    const { register, handleSubmit, formState: { errors } } = useForm()
     const inputStyles = `py-3 mt-4 px-4 md:w-5/6 w-[90%] bg-box-secondary rounded-md placeholder-white focus:outline-none`
 
     const inputBody = (field: string, fieldCap: string, type: string) => {
@@ -18,12 +19,7 @@ function DailyCalorie({ }: Props) {
 
     }
 
-    const onSubmit = async (e: any) => {
-        const isValid = await trigger()
-        if (!isValid) {
-            e.preventDefault()
-        }
-    }
+    const onSubmit = results('dailycalorie')
 
     // const inputErrors = (item:string) => {
     //    return errors[`${item}`] &&
@@ -35,7 +31,7 @@ function DailyCalorie({ }: Props) {
         <div className='basis-3/5'>
             <form
                 action=""
-                onSubmit={onSubmit}
+                onSubmit={handleSubmit(onSubmit)}
             >
                 {inputBody('age', 'Age', 'number')}
                 {errors.age &&
@@ -62,7 +58,7 @@ function DailyCalorie({ }: Props) {
                     </p>
                 }
                 <div className={`${inputStyles}`}>
-                    <select id='activitylevel' className='p-4 rounded-md mt-1 bg-box-secondary border-2 border-box-primary text-white focus:outline-none' {...register('activitylevel')}>
+                    <select id='activitylevel' className='p-4 w-[90%] rounded-md mt-1 bg-box-secondary border-2 border-box-primary text-text-primary focus:outline-none' {...register('activitylevel')}>
                         <option value="level_1">Sedentary: little or no exercise</option>
                         <option value="level_2">Exercise 1-3 times/week</option>
                         <option value="level_3">Exercise 4-5 times/week</option>

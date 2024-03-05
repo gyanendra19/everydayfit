@@ -39,9 +39,9 @@ function CalcHead({ }: Props) {
     <>
       <section className='py-6 w-full'>
         <div className='w-[90%] mx-auto'>
-          <div>
+          <a href='/'>
             <img src={Logo} alt="logo" />
-          </div>
+          </a>
         </div>
       </section>
 

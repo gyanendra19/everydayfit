@@ -1,9 +1,10 @@
+import results from "@/CalcComponent/CalcResults/ResultsApi"
 import { useForm } from "react-hook-form"
 
 type Props = {}
 
 function IdealWeight({ }: Props) {
-    const { register, trigger, formState: { errors } } = useForm()
+    const { register, handleSubmit, formState: { errors } } = useForm()
     const inputStyles = `py-3 mt-4 px-4 md:w-5/6 w-[90%] bg-box-secondary rounded-md placeholder-white focus:outline-none`
 
     const inputBody = (field: string, fieldCap: string, type: string) => {
@@ -17,18 +18,13 @@ function IdealWeight({ }: Props) {
             type={type} />
     }
 
-    const onSubmit = async (e: any) => {
-        const isValid = await trigger()
-        if (!isValid) {
-            e.preventDefault()
-        }
-    }
+    const onSubmit = results('idealweight')
 
     return (
         <div className='basis-3/5'>
             <form
                 action=""
-                onSubmit={onSubmit}
+                onSubmit={handleSubmit(onSubmit)}
             >
                 {inputBody('gender', 'Gender', 'text')}
                 {errors.gender &&
@@ -36,10 +32,10 @@ function IdealWeight({ }: Props) {
                         {errors.gender.type === 'required' && 'This field is required'}
                     </p>
                 }
-                {inputBody('weight', 'Weight', 'number')}
-                {errors.weight &&
+                {inputBody('height', 'Height', 'number')}
+                {errors.height &&
                     <p className='mt-1'>
-                        {errors.weight.type === 'required' && 'This field is required'}
+                        {errors.height.type === 'required' && 'This field is required'}
                     </p>
                 }
 

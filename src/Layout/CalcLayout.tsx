@@ -8,11 +8,11 @@ import { useState } from "react"
 function CalcLayout() {
   const [toggleCalc, setToggleCalc] = useState('dailycalorie')
   const [response, setResponse] = useState({})
-
+  const [whichCalc, setWhichCalc] = useState('')
 
   return (
       <>
-      <calcContext.Provider value={{toggleCalc, setToggleCalc, response, setResponse}}>
+      <calcContext.Provider value={{toggleCalc, setToggleCalc, response, setResponse, whichCalc, setWhichCalc}}>
       <CalcHead />
       <CalcInput />
       <CalcResults />
