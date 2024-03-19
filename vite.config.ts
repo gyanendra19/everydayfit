@@ -6,7 +6,7 @@ import path from 'path'
 export default defineConfig({
   server: {
     proxy: {
-      '/api': 'https://everydayfit-backend.onrender.com/'
+      '/api': 'https://everydayfit-backend.onrender.com'
     }
   },
   plugins: [react()],
