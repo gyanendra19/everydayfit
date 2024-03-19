@@ -1,5 +1,4 @@
 import { calcContextType, useCalcContext } from '@/contexts/calcContext'
-import React from 'react'
 
 type Props = {}
 

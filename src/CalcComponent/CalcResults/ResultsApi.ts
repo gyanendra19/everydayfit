@@ -61,7 +61,6 @@ function results(calcType: string) {
             e.preventDefault()
         }
 
-        console.log(data)
         const res = await axios({
             method: 'GET',
             url: `https://fitness-calculator.p.rapidapi.com/${calcType}`,
@@ -73,7 +72,6 @@ function results(calcType: string) {
         })
         setResponse(res.data.data)
         setWhichCalc(calcType)
-        console.log(response)
     }
 }
 

@@ -21,6 +21,19 @@ export default {
         resultsBox: "url('./assets/results.png')",
         mobileNameBox: "url('./assets/mobile-name.png')",
         mobileResultsBox: "url('./assets/mobile-results.png')",
+        utilOne: "url('./assets/utils-one.png')",
+        utilTwo: "url('./assets/utils-two.png')",
+      },
+      keyframes: {
+        "alert": {
+          '0%': {transform: "translateY(-100px)"},
+          '5%': {transform: "translateY(0)"},
+          '90%': {opacity: 1},
+          '100%': {opacity: 0}
+        }
+      },
+      animation: {
+        "alert-animate": "alert 4s ease-out forwards"
       }
     },
     screens: {
@@ -29,6 +42,8 @@ export default {
       md: "1060px",
     }
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar-hide')
+  ],
 }
 

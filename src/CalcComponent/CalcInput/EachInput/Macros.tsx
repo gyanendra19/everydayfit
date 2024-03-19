@@ -1,12 +1,10 @@
 import  results  from '@/CalcComponent/CalcResults/ResultsApi'
-import { calcContextType, useCalcContext } from '@/contexts/calcContext'
 import { useForm } from 'react-hook-form'
 
 type Props = {}
 
 function Macros({ }: Props) {
     const { register, handleSubmit, formState: { errors } } = useForm()
-    const {response} = useCalcContext() as calcContextType
     const inputStyles = `py-3 mt-4 px-4 md:w-5/6 w-[90%] bg-box-secondary rounded-md placeholder-white focus:outline-none`
 
     const inputBody = (field: string, fieldCap: string, type: string) => {

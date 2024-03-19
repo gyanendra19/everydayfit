@@ -2,6 +2,10 @@ import Logo from '@/assets/logo.png'
 import Htext from '@/shared/Htext'
 import CalcLinks from './CalcLinks'
 import { calcContextType, useCalcContext } from '@/contexts/calcContext'
+import { motion } from 'framer-motion'
+import MobileSidebar from '@/shared/mobileSidebar'
+import NavRight from '@/shared/NavRight'
+import { NavLink } from 'react-router-dom'
 
 type Props = {}
 
@@ -34,21 +38,37 @@ const heads = [
 ]
 
 function CalcHead({ }: Props) {
-  const {toggleCalc} = useCalcContext() as calcContextType;
+  const { toggleCalc } = useCalcContext() as calcContextType;
+
   return (
     <>
-      <section className='py-6 w-full'>
+      <section className='py-6 w-full alert-active'>
         <div className='w-[90%] mx-auto'>
-          <a href='/'>
-            <img src={Logo} alt="logo" />
-          </a>
+          <div className='flex justify-between'>
+            <NavLink to='/'>
+              <img src={Logo} alt="logo" />
+            </NavLink>
+
+            {<NavRight featureOne={'blogs'} featureTwo={'products'} isCheckout={false} />}
+          </div>
         </div>
-      </section>
+
+        {<MobileSidebar whichPageOne={'blogs'} whichPageTwo={'products'} isCheckout={false} />}
+      </section >
 
 
       <section className='md:pt-28 pt-10 w-full'>
         <div className='w-5/6 mx-auto'>
-          <div className='relative text-[#B14343] font-bold text-base md:text-xl'>
+          <motion.div
+            initial='hidden'
+            whileInView='visible'
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.5 }}
+            variants={{
+              hidden: { opacity: 0, x: -50 },
+              visible: { opacity: 1, x: 0 }
+            }}
+            className='relative text-[#B14343] font-bold text-base md:text-xl'>
             <div className='before:absolute md:before:content-CalcNameBox before:content-mobileNameBox md:before:-left-12 md:before:-top-24 before:-top-4 before:-left-6 before:z-[1]'>
               <div className='flex md:flex-row flex-col gap-10 md:gap-4 justify-evenly relative z-10'>
                 <div className='flex gap-3 md:gap-20'>
@@ -62,21 +82,30 @@ function CalcHead({ }: Props) {
                 </div>
 
                 <div className='ml-20 mt-2 md:mt-0 md:ml-0'>
-                <CalcLinks>MACROS</CalcLinks>
+                  <CalcLinks>MACROS</CalcLinks>
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
 
-          <div className='md:pt-28 pt-14'>
+          <motion.div
+            initial='hidden'
+            whileInView='visible'
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            variants={{
+              hidden: { opacity: 0, x: -50 },
+              visible: { opacity: 1, x: 0 }
+            }}
+            className='md:pt-28 pt-14'>
             {heads.map(item => (
               toggleCalc === item.name && <>
-              <Htext>{item.title}</Htext>
-              <p className='pt-10 text-base md:w-[80%]'>{item.about}</p>
+                <Htext>{item.title}</Htext>
+                <p className='pt-10 text-base md:w-[80%]'>{item.about}</p>
               </>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
     </>

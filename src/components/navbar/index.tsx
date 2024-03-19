@@ -1,18 +1,22 @@
 import Logo from "../../assets/logo.png"
 import Links from './Links'
-import ActionButton from '../../shared/ActionButton'
+import { NavLink } from "react-router-dom"
 import useMediaQuery from '../../hooks/useMediaQuery'
 import { RiMenu3Line, RiCloseCircleLine } from '@remixicon/react'
 import { useEffect, useState } from 'react'
 import { gymContextType, useGymContext } from "@/contexts/gymContext"
 import { Pages } from "@/shared/types"
+import { useCookies } from "react-cookie"
+import { Alert } from "@/shared/AuthApi"
+import { getCurrentUser } from "@/shared/CurrentUser"
 
 type Props = {}
 
 function Navbar({ }: Props) {
     const [isToggle, setToggle] = useState(false)
     const [isTopOfPage, setIsTopOfPage] = useState(true)
-    const {setSelectedPage} = useGymContext() as gymContextType
+    const {setSelectedPage, cartProduct, setCurrentUser, setCartProduct} = useGymContext() as gymContextType
+    const [cookies, _, removeCookies] = useCookies(['access_token'])
 
     useEffect(() => {
         const scrollNav = () => {
@@ -24,8 +28,14 @@ function Navbar({ }: Props) {
             }
         }
 
+        
         window.addEventListener('scroll', scrollNav)
         return () => removeEventListener('scroll', scrollNav)
+    }, [])
+    
+    useEffect(() => {
+            getCurrentUser(cookies.access_token, setCurrentUser)
+            // setCartProduct([]) 
     }, [])
 
     const isAboveMediumScreen = useMediaQuery("(min-width:1060px)")
@@ -33,7 +43,7 @@ function Navbar({ }: Props) {
         <section className={`${isTopOfPage ? "" : "bg-box-primary"} w-full py-6 md:fixed top-0 z-30`}>
             <div className="w-full">
                 <div className='md:mx-10 mx-4 flex justify-between items-center'>
-                    <div className='flex gap-8'>
+                    <div className='flex gap-8 alert-active'>
                         <img src={Logo} alt="" />
                     </div>
 
@@ -43,7 +53,20 @@ function Navbar({ }: Props) {
                             <Links>Our Services</Links>
                             <Links>Features</Links>
                             <Links>Contact us</Links>
-                            <ActionButton>Become a member</ActionButton>
+                            {
+                                cookies.access_token ? 
+                                <button 
+                                onClick={() => {
+                                    removeCookies('access_token')
+                                    Alert('Logged out')
+                                }}
+                                className='rounded-md bg-button-primary text-white hover:opacity-90 py-2 px-8'
+                                >Logout</button>
+                                : 
+                                <NavLink 
+                                className='rounded-md bg-button-primary text-white hover:opacity-90 py-2 px-8'
+                                to='signup'>Signup</NavLink>                               
+                            }
                         </div>
                     )
                         :

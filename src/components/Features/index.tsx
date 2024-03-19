@@ -1,4 +1,4 @@
-import ActionButton, { FeaturesButton } from '@/shared/ActionButton'
+import  { FeaturesButton } from '@/shared/ActionButton'
 import Htext from '@/shared/Htext'
 import calculator from '@/assets/calculator.png'
 import product from '@/assets/product.png'
@@ -34,7 +34,7 @@ function Features({ }: Props) {
                         <Htext>CALCULATORS</Htext>
                         <p className='mt-5 sm:w-8/12 text-xl'>Use indicators like BMI, Ideal body weight, Number of Macros, Body fat percent, Daily calorie to track your fitness journey and achieve your desired goals</p>
                         <div className='mt-6'>
-                            <FeaturesButton toPage='calculators'>JOIN NOW</FeaturesButton>
+                            <FeaturesButton toPage='calculators'>EXPOLRE</FeaturesButton>
                         </div>
                     </motion.div>
 
@@ -62,7 +62,7 @@ function Features({ }: Props) {
                         <Htext>PRODUCTS</Htext>
                         <p className='mt-5 sm:w-10/12 text-xl'>Buy Products like protein shaker, dumbbells, yoga mats and many more to enhance your fitness experience as we have the best quality products in the market.</p>
                         <div className='mt-6'>
-                            <ActionButton>JOIN NOW</ActionButton>
+                            <FeaturesButton toPage='products'>EXPOLRE</FeaturesButton>
                         </div>
                     </motion.div>
                 </div>
@@ -74,7 +74,7 @@ function Features({ }: Props) {
                         <Htext>PRODUCTS</Htext>
                         <p className='mt-5 sm:w-10/12 text-xl'>Buy Products like protein shaker, dumbbells, yoga mats and many more to enhance your fitness experience as we have the best quality products in the market.</p>
                         <div className='mt-6'>
-                            <ActionButton>JOIN NOW</ActionButton>
+                            <FeaturesButton toPage='products'>EXPOLRE</FeaturesButton >
                         </div>
                     </div>
 
@@ -100,7 +100,7 @@ function Features({ }: Props) {
                         <Htext>BLOGS</Htext>
                         <p className='mt-5 sm:w-9/12 text-xl'>Wanna read articles and blogs to increase your knowledge on fitness? Here we are with the best articles there is to make your journey interesting and knowledgeable.</p>
                         <div className='mt-6'>
-                            <ActionButton>JOIN NOW</ActionButton>
+                            <FeaturesButton toPage='blogs'>EXPOLRE</FeaturesButton>
                         </div>
                     </motion.div>
 
