@@ -4,7 +4,7 @@ export const modalApi = async(setProduct: any, productName: String) => {
     
     const res = await axios({
         method: 'POST',
-        url: "/api/v1/product/retrieveProduct",
+        url: "https://everydayfit-backend.onrender.com/api/v1/product/getProduct",
         data: {
             productName
         }

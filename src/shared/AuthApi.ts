@@ -27,7 +27,7 @@ export const AuthApi = (type: String) => {
     
     try {
     e.preventDefault()
-    const res = await axios.post(`/api/v1/user/${type}`, whichAuth(data))
+    const res = await axios.post(`https://everydayfit-backend.onrender.com/api/v1/user/${type}`, whichAuth(data))
 
 
     if (res.data.status === 'success') {

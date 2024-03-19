@@ -5,7 +5,7 @@ export const getCurrentUser = async(token: string, setCurrentUser:(value: any) =
 
     const res = await axios({
         method: 'GET',
-        url: `/api/v1/user/protect/${token}`
+        url: `https://everydayfit-backend.onrender.com/api/v1/user/protect/${token}`
     })
 
     setCurrentUser(res.data.data)

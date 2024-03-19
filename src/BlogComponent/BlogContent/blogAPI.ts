@@ -3,7 +3,7 @@ import axios from "axios"
 export const useBlogApi = async(topic: string, setBlogResponse: (value: any) => void) => {
     const res = await axios({
         method: 'POST',
-        url: "/api/v1/blog/getBlog",
+        url: "https://everydayfit-backend.onrender.com/api/v1/blog/getBlog",
         data: {
             topic
         }
@@ -16,7 +16,7 @@ export const useGetAllBlog = async(setAllBlog: (value: any) => void) => {
 
     const res = await axios({
         method: 'GET',
-        url: "/api/v1/blog/getAllBlogs"
+        url: "https://everydayfit-backend.onrender.com/api/v1/blog/getAllBlogs"
     })
 
     setAllBlog(res.data.data)
