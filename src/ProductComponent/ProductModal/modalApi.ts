@@ -4,7 +4,7 @@ export const modalApi = async(setProduct: any, productName: String) => {
     
     const res = await axios({
         method: 'POST',
-        url: "/api/v1/product/retrieveProduct",
+        url: "http://127.0.0.1:4555/api/v1/product/retrieveProduct",
         data: {
             productName
         }
