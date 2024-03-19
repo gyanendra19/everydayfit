@@ -1,4 +1,3 @@
-// import plan from '@/assets/plan.png'
 import { motion } from 'framer-motion'
 import { blogContextType, useBlogContext } from '@/contexts/blogContext'
 import { useBlogApi, useGetAllBlog } from '../BlogContent/blogAPI'

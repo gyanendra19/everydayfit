@@ -1,5 +1,4 @@
 import { productContextType, useProductContext } from '@/contexts/productContext'
-import React from 'react'
 
 type Props = {
     children: String

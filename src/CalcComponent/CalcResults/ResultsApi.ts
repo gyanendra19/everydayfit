@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form"
 
 
 function results(calcType: string) {
-    const {response, setResponse, setWhichCalc } = useCalcContext() as calcContextType
+    const {setResponse, setWhichCalc } = useCalcContext() as calcContextType
     const { trigger } = useForm()
 
     const parametres = (data: any) => {

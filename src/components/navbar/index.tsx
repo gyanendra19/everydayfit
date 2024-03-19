@@ -15,7 +15,7 @@ type Props = {}
 function Navbar({ }: Props) {
     const [isToggle, setToggle] = useState(false)
     const [isTopOfPage, setIsTopOfPage] = useState(true)
-    const {setSelectedPage, cartProduct, setCurrentUser, setCartProduct} = useGymContext() as gymContextType
+    const {setSelectedPage, setCurrentUser} = useGymContext() as gymContextType
     const [cookies, _, removeCookies] = useCookies(['access_token'])
 
     useEffect(() => {

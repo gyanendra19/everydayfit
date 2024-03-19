@@ -10,7 +10,7 @@ function NewBlog({ }: Props) {
     const { register, handleSubmit, trigger, formState: { errors } } = useForm()
     const [cookies] = useCookies(['access_token'])
 
-    const submit = async(data:any, e: any) => {
+    const submit = async(e: any) => {
         const isValid = await trigger()
         if(!isValid){
             e.preventDefault()

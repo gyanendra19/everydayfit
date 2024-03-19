@@ -5,7 +5,7 @@ type Props = {}
 
 function CheckoutBody({ }: Props) {
     const [renderCheckout , setRenderCheckout] = useState(false)
-    const { cartProduct, total, setTotal} = useGymContext() as gymContextType
+    const { cartProduct, setTotal} = useGymContext() as gymContextType
     
     return (
         <section className='py-8 w-full'>

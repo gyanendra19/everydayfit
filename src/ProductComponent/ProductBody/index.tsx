@@ -7,7 +7,7 @@ import { modalApi } from '../ProductModal/modalApi'
 type Props = {}
 
 function ProductBody({ }: Props) {
-    const { allProductResponse, setAllProductResponse, toggleVariety, setOpenCheckout, openCheckout, productName, setProductName, setProduct, product} = useProductContext() as productContextType
+    const { allProductResponse, setAllProductResponse, toggleVariety, setOpenCheckout, openCheckout, productName, setProductName, setProduct} = useProductContext() as productContextType
 
     const filteredResponse = allProductResponse.filter((item: any) => {
         if(toggleVariety === 'ALL PRODUCTS') return item.variety
