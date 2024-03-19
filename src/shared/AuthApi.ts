@@ -3,7 +3,7 @@ import { useCookies } from "react-cookie"
 import { useNavigate } from "react-router-dom"
 
 export function Alert(message : String = 'Something went wrong, Try Again') {
-    const markup = `<div class='fixed left-[43%] top-8 py-2 px-6 rounded-md bg-[#F6BD60] text-white animate-alert-animate opacity-90 z-[1000]'>${message}</div>`
+    const markup = `<div class='fixed md:left-[43%] left-[30%] top-8 py-2 px-6 rounded-md bg-[#F6BD60] text-white animate-alert-animate opacity-90 z-[1000]'>${message}</div>`
     document.querySelector('.alert-active')?.insertAdjacentHTML('afterbegin', markup)
 }
 

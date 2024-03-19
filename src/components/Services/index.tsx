@@ -3,6 +3,7 @@ import OurServices from "./ourServices"
 import { motion } from "framer-motion"
 import { gymContextType, useGymContext } from "@/contexts/gymContext"
 import { Pages } from "@/shared/types"
+import useMediaQuery from "@/hooks/useMediaQuery"
 
 type Props = {}
 
@@ -22,13 +23,16 @@ const service = [
 ]
 
 function Services({}: Props) {
+    const isAboveMediumScreen = useMediaQuery("(min-width:1060px)")
     const {setSelectedPage} = useGymContext() as gymContextType
 
   return (
-    <section
-    id="ourservices"
-    className='w-full py-12'
-    >
+      <section
+      id="ourservices"
+      className='w-full md:py-12'
+      >
+    {isAboveMediumScreen &&
+        (
         <motion.div 
         onViewportEnter={() => setSelectedPage(Pages.OurServices)}
         className='w-[80%] mx-auto'>
@@ -43,6 +47,8 @@ function Services({}: Props) {
             ))}       
             </div>
         </motion.div>
+        )
+    }
     </section>
   )
 }
