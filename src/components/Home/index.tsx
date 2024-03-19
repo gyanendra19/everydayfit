@@ -12,7 +12,7 @@ function Home({}: Props) {
   return (
     <section
     id='home'
-    className='w-full pt-36'
+    className='w-full md:pt-36 pt-8'
     >
     <motion.div 
     onViewportEnter={() => setSelectedPage(Pages.Home)}

@@ -41,8 +41,8 @@ function NavRight({featureOne, featureTwo, isCheckout}: Props) {
       )
         :
         (
-          <div className='flex gap-6 items-center'>
-            <div className='text-text-primary cursor-pointer'><RiShoppingCart2Fill /></div>
+          <div className='flex gap-3 items-center'>
+            <NavLink to={'/checkout'} className='text-text-primary cursor-pointer'><RiShoppingCart2Fill /></NavLink>
             <div onClick={() => setToggle(!isToggle)}
               className='rounded-full p-2 bg-button-primary'><RiMenu3Line color='white' /></div>
           </div>

@@ -15,27 +15,27 @@ type Props = {}
 function Navbar({ }: Props) {
     const [isToggle, setToggle] = useState(false)
     const [isTopOfPage, setIsTopOfPage] = useState(true)
-    const {setSelectedPage, setCurrentUser} = useGymContext() as gymContextType
+    const { setSelectedPage, setCurrentUser } = useGymContext() as gymContextType
     const [cookies, _, removeCookies] = useCookies(['access_token'])
 
     useEffect(() => {
         const scrollNav = () => {
-            if(window.scrollY === 0){
+            if (window.scrollY === 0) {
                 setIsTopOfPage(true)
                 setSelectedPage(Pages.Home)
-            }else{
+            } else {
                 setIsTopOfPage(false)
             }
         }
 
-        
+
         window.addEventListener('scroll', scrollNav)
         return () => removeEventListener('scroll', scrollNav)
     }, [])
-    
+
     useEffect(() => {
-            getCurrentUser(cookies.access_token, setCurrentUser)
-            // setCartProduct([]) 
+        getCurrentUser(cookies.access_token, setCurrentUser)
+        // setCartProduct([]) 
     }, [])
 
     const isAboveMediumScreen = useMediaQuery("(min-width:1060px)")
@@ -54,18 +54,18 @@ function Navbar({ }: Props) {
                             <Links>Features</Links>
                             <Links>Contact us</Links>
                             {
-                                cookies.access_token ? 
-                                <button 
-                                onClick={() => {
-                                    removeCookies('access_token')
-                                    Alert('Logged out')
-                                }}
-                                className='rounded-md bg-button-primary text-white hover:opacity-90 py-2 px-8'
-                                >Logout</button>
-                                : 
-                                <NavLink 
-                                className='rounded-md bg-button-primary text-white hover:opacity-90 py-2 px-8'
-                                to='signup'>Signup</NavLink>                               
+                                cookies.access_token ?
+                                    <button
+                                        onClick={() => {
+                                            removeCookies('access_token')
+                                            Alert('Logged out')
+                                        }}
+                                        className='rounded-md bg-button-primary text-white hover:opacity-90 py-2 px-8'
+                                    >Logout</button>
+                                    :
+                                    <NavLink
+                                        className='rounded-md bg-button-primary text-white hover:opacity-90 py-2 px-8'
+                                        to='signup'>Signup</NavLink>
                             }
                         </div>
                     )
@@ -85,15 +85,29 @@ function Navbar({ }: Props) {
                 <div className='h-full w-[300px] bg-box-primary fixed right-0 bottom-0 z-40 '>
                     <div className='w-full py-16 text-xl relative'>
                         <div className='h-full w-3/5 mx-auto flex flex-col gap-7'>
-                            <div 
-                            onClick={() => setToggle(!isToggle)}
-                            className='absolute right-10 top-8'>
-                                <RiCloseCircleLine size = '28'/>
+                            <div
+                                onClick={() => setToggle(!isToggle)}
+                                className='absolute right-10 top-8'>
+                                <RiCloseCircleLine size='28' />
                             </div>
                             <Links>Home</Links>
                             <Links>Our Services</Links>
                             <Links>Features</Links>
                             <Links>Contact us</Links>
+                            {
+                                cookies.access_token ?
+                                    <button
+                                        onClick={() => {
+                                            removeCookies('access_token')
+                                            Alert('Logged out')
+                                        }}
+                                        className='rounded-md bg-button-primary text-white hover:opacity-90 py-2 px-8'
+                                    >Logout</button>
+                                    :
+                                    <NavLink
+                                        className='rounded-md bg-button-primary text-white hover:opacity-90 py-2 px-8'
+                                        to='/signup'>Signup</NavLink>
+                            }
                         </div>
                     </div>
                 </div>
