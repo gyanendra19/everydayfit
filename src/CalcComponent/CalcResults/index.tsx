@@ -65,8 +65,8 @@ function CalcResults({ }: Props) {
     return (
         <section className='md:py-28 w-full pt-16 md:pt-0 mb-10'>
             <div className='w-5/6 mx-auto'>
-                <div className='relative text-white'>
-                    <div className='before:absolute sm:before:content-resultsBox before:content-mobileResultsBox   sm:before:-top-20 before:-top-8 before:z-[-1]'>
+                <div className='relative sm:min-h-[200px] text-white'>
+                    <div className='before:absolute sm:before:content-resultsBox before:content-mobileResultsBox   sm:before:top-10 before:-top-8 before:z-[-1]'>
                         <div className='md:flex h-[400px] md:h-fit overflow-y-scroll '>
                             {whichCalc === 'idealweight' && resBodyOne('Devine')}
                             {whichCalc === 'idealweight' && resBodyOne('Hamwi')}

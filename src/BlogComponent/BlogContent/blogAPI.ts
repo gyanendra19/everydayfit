@@ -6,6 +6,9 @@ export const useBlogApi = async(topic: string, setBlogResponse: (value: any) => 
         url: "https://everydayfit-backend.onrender.com/api/v1/blog/getBlog",
         data: {
             topic
+        },
+        headers: {
+            "Access-Control-Allow-Origin": "https://everydayfit.vercel.app"
         }
     })
 
@@ -16,7 +19,10 @@ export const useGetAllBlog = async(setAllBlog: (value: any) => void) => {
 
     const res = await axios({
         method: 'GET',
-        url: "https://everydayfit-backend.onrender.com/api/v1/blog/getAllBlogs"
+        url: "https://everydayfit-backend.onrender.com/api/v1/blog/getAllBlogs",
+        headers: {
+            "Access-Control-Allow-Origin": "https://everydayfit.vercel.app"
+        }
     })
 
     setAllBlog(res.data.data)

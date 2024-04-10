@@ -7,6 +7,9 @@ export const modalApi = async(setProduct: any, productName: String) => {
         url: "https://everydayfit-backend.onrender.com/api/v1/product/getProduct",
         data: {
             productName
+        },
+        headers: {
+            "Access-Control-Allow-Origin": "https://everydayfit.vercel.app"
         }
     })
 
