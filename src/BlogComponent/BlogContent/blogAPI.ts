@@ -8,7 +8,7 @@ export const useBlogApi = async(topic: string, setBlogResponse: (value: any) => 
             topic
         },
         headers: {
-            "Access-Control-Allow-Origin": "https://everydayfit.vercel.app"
+            "Access-Control-Allow-Origin": "*"
         }
     })
 
@@ -21,7 +21,7 @@ export const useGetAllBlog = async(setAllBlog: (value: any) => void) => {
         method: 'GET',
         url: "https://everydayfit-backend.onrender.com/api/v1/blog/getAllBlogs",
         headers: {
-            "Access-Control-Allow-Origin": "https://everydayfit.vercel.app"
+            "Access-Control-Allow-Origin": "*"
         }
     })
 
