@@ -9,7 +9,7 @@ export const modalApi = async(setProduct: any, productName: String) => {
             productName
         },
         headers: {
-            "Access-Control-Allow-Origin": "*"
+            "Access-Control-Allow-Origin": "https://everydayfit.vercel.app/"
         }
     })
 

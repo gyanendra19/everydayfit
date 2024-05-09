@@ -13,7 +13,7 @@ function CalcResults({ }: Props) {
     }
 
     const resBodyTwo = (resField: string, res: string) => {
-        return <div className='flex mb-1 md:ml-4 pt-10 md:pt-0 w-4/6  md:text-2xl font-semibold'>
+        return <div className='flex mb-1 md:ml-4 pt-6 md:pt-0 w-4/6  md:text-2xl font-semibold'>
             <p className='m-0 text-[#9b2226]'>{`${resField}`}:</p>
             <span className='ml-3 text-yellow-400'>{response[`${res}`]}</span>
         </div>
@@ -63,11 +63,11 @@ function CalcResults({ }: Props) {
     }
 
     return (
-        <section className='md:py-28 w-full pt-16 md:pt-0 mb-10'>
+        <section className='md:py-10 w-full pt-16 md:pt-0 mb-10'>
             <div className='w-5/6 mx-auto'>
-                <div className='relative sm:min-h-[200px] text-white'>
-                    <div className='before:absolute sm:before:content-resultsBox before:content-mobileResultsBox   sm:before:top-10 before:-top-8 before:z-[-1]'>
-                        <div className='md:flex h-[400px] md:h-fit overflow-y-scroll '>
+                <div className='relative flex flex-col justify-center sm:min-h-[300px] text-white'>
+                    <div className='before:absolute sm:before:content-resultsBox before:content-mobileResultsBox   sm:before:top-10 sm:before:-left-10 before:-top-8 before:z-[-1]'>
+                        <div className='flex md:flex-row flex-col items-center h-[400px] text-sm md:h-fit overflow-y-scroll '>
                             {whichCalc === 'idealweight' && resBodyOne('Devine')}
                             {whichCalc === 'idealweight' && resBodyOne('Hamwi')}
                             {whichCalc === 'idealweight' && resBodyOne('Miller')}

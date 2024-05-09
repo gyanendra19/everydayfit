@@ -1,4 +1,5 @@
 import { calcContextType, useCalcContext } from "@/contexts/calcContext"
+import { Alert } from "@/shared/AuthApi"
 import axios from "axios"
 import { useForm } from "react-hook-form"
 
@@ -61,7 +62,8 @@ function results(calcType: string) {
             e.preventDefault()
         }
 
-        const res = await axios({
+        try{
+            const res = await axios({
             method: 'GET',
             url: `https://fitness-calculator.p.rapidapi.com/${calcType}`,
             params: parametres(data),
@@ -70,8 +72,12 @@ function results(calcType: string) {
                 'X-RapidAPI-Host': 'fitness-calculator.p.rapidapi.com'
             }
         })
-        setResponse(res.data.data)
+
+        setResponse(res.data.data) 
         setWhichCalc(calcType)
+    }catch(err){
+        Alert('Something went wrong!!')
+    }
     }
 }
 
