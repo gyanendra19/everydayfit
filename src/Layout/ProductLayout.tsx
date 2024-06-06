@@ -1,6 +1,7 @@
 import ProductBody from '@/ProductComponent/ProductBody'
 import ProductHead from '@/ProductComponent/ProductHead'
 import ProductModal from '@/ProductComponent/ProductModal'
+import ScrollToTop from '@/ScrollToTop'
 import Footer from '@/components/Footer'
 import { ProductContext } from '@/contexts/productContext'
 import  { useState } from 'react'
@@ -18,7 +19,7 @@ function ProductLayout({}: Props) {
   return (
     <ProductContext.Provider value={{allProductResponse, setAllProductResponse, toggleVariety, setToggleVariety, openCheckout, setOpenCheckout, product, setProduct, productName, setProductName}}>
     <div className='relative'>
-    
+        <ScrollToTop />
         <ProductModal />
         <ProductHead />
         <ProductBody />

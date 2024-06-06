@@ -1,6 +1,7 @@
 import CalcHead from "@/CalcComponent/CalcHead"
 import CalcInput from "@/CalcComponent/CalcInput"
 import CalcResults from "@/CalcComponent/CalcResults"
+import ScrollToTop from "@/ScrollToTop"
 import Footer from "@/components/Footer"
 import {calcContext} from '@/contexts/calcContext'
 import { useState } from "react"
@@ -13,6 +14,7 @@ function CalcLayout() {
   return (
       <>
       <calcContext.Provider value={{toggleCalc, setToggleCalc, response, setResponse, whichCalc, setWhichCalc}}>
+      <ScrollToTop />
       <CalcHead />
       <CalcInput />
       <CalcResults />
